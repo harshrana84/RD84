@@ -85,7 +85,7 @@ const Header = () => {
             </div>
 
             <Link href="/" className="logo flex bg-slate-200 border-4 border-slate-200 dark:border-slate-950 dark:bg-slate-950 rounded-full relative top-6 z-[84]">
-              <span className="sr-only">Radiant Destiny</span>
+              <span className="sr-only">{process.env.brandName}</span>
               <div className='relative'>
 
                 <Image

@@ -16,10 +16,10 @@ import bannerImage_7 from "../../public/images/banner_images/home-page-03-hero-i
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: process.env.NEXT_PUBLIC_APP_NAME || "Radiant Destiny",
+  title: process.env.NEXT_PUBLIC_APP_NAME || "The 84",
   description:
     process.env.NEXT_PUBLIC_APP_DESC ||
-    "Radiant Destiny: Surat’s go-to eCommerce store for premium products. Shop kitchenware, decor, and organization essentials for an elevated living experience in South Gujarat.",
+    `${process.env.brandName} : Surat’s go-to eCommerce store for premium products. Shop kitchenware, decor, and organization essentials for an elevated living experience in South Gujarat.`,
 };
 
 export default async function Home() {
@@ -36,7 +36,7 @@ export default async function Home() {
                 <span className="animated_text_bg font-semibold">Premium</span> Products.
               </h1>
               <p className="mt-4 text-lg text-gray-500 dark:text-gray-400 pr-2">
-                Elevate your home with Radiant Destiny. Browse our selection of
+                Elevate your home with {process.env.brandName}. Browse our selection of
                 kitchenware, decor, and organization items and order online
                 today.
               </p>

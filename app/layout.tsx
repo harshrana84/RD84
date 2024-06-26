@@ -13,8 +13,8 @@ import Image from 'next/image'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Radiant Destiny',
-  description: 'Modern ECommerce Website',
+  title: process.env.brandName,
+  description: 'Surat’s Best Online Store for Premium Products.',
 }
 
 export default function RootLayout({
