@@ -67,7 +67,7 @@ export default function RootLayout({
                     </div>
                   </Link>
                   <p className='text-gray-600 dark:text-gray-200'>
-                    Copyright © 2023 - All right reserved by <span className="block sm:inline font-semibold">{process.env.brandName}</span>
+                    Copyright ©2024 - All right reserved by <span className="block sm:inline font-semibold">{process.env.brandName}</span>
                   </p>
                 </footer>
               </div>
