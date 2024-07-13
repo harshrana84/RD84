@@ -158,7 +158,7 @@ export default async function Home() {
                 </div>
               </dl>
               <div className="mt-10">
-                <a href="#" className="text-base font-medium text-orange-500">Learn more about how we're changing the world →</a>
+                <a href="#" className="text-base font-medium text-orange-500">Learn more about how we&apos;re changing the world →</a>
               </div>
             </div>
           </div>
@@ -323,7 +323,7 @@ export default async function Home() {
           <div className="relative lg:col-span-1">
             <img className="h-12 w-auto" src="https://tailwindui.com/img/logos/workcation-logo-white.svg" alt=""/>
             <blockquote className="mt-6 text-white">
-              <p className="text-xl font-medium sm:text-2xl">This app has completely transformed how we interact with customers. We've seen record bookings, higher customer satisfaction, and reduced churn.</p>
+              <p className="text-xl font-medium sm:text-2xl">This app has completely transformed how we interact with customers. We&apos;ve seen record bookings, higher customer satisfaction, and reduced churn.</p>
               <footer className="mt-6">
                 <p className="flex flex-col font-medium">
                   <span>Marie Chilvers</span>
