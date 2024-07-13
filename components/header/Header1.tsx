@@ -9,7 +9,7 @@ import Image from 'next/image'
 const Header = () => {
   const whatsappNumber = process.env.whatsAppNumber || '9924817983';
   return (
-    <header className="bg-slate-200 dark:bg-slate-950 sticky top-0 z-50">
+    <header className="bg-white dark:bg-slate-950 sticky top-0 z-50">
       <nav aria-label="Top" className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div>
           <div className="flex h-16 items-center justify-between">
@@ -84,7 +84,7 @@ const Header = () => {
               </div>
             </div>
 
-            <Link href="/" className="logo flex bg-slate-200 border-4 border-slate-200 dark:border-slate-950 dark:bg-slate-950 rounded-full relative top-6 z-[84]">
+            <Link href="/" className="logo flex bg-white border-4 border-white dark:border-slate-950 dark:bg-slate-950 rounded-full relative top-6 z-[84]">
               <span className="sr-only">{process.env.brandName}</span>
               <div className='relative'>
 

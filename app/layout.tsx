@@ -42,10 +42,10 @@ export default function RootLayout({
           <div className="drawer tracking-tight">
             <DrawerButton />
             <div className="drawer-content">
-              <div className="min-h-screen flex flex-col dark:bg-gray-900 bg-zinc-50">
+              <div className="min-h-screen flex flex-col dark:bg-gray-900 bg-white">
                 <Header />
                 {children}
-                <footer className="footer footer-center py-8 px-4 text-base-content bg-slate-200 dark:bg-slate-950 ">
+                {/* <footer className="footer footer-center py-8 px-4 text-base-content bg-slate-200 dark:bg-slate-950 ">
                   <Link href="/" className="flex bg-slate-200 border-2 border-slate-200 dark:border-slate-950 dark:bg-slate-950 rounded-full relative">
                     <span className="sr-only">{process.env.brandName}</span>
                     <div className='relative'>
@@ -69,7 +69,9 @@ export default function RootLayout({
                   <p className='text-gray-600 dark:text-gray-200'>
                     Copyright ©2024 - All right reserved by <span className="block sm:inline font-semibold">{process.env.brandName}</span>
                   </p>
-                </footer>
+                </footer> */}
+
+
               </div>
             </div>
             <div className="drawer-side z-10">
