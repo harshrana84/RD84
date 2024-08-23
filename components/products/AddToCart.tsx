@@ -1,18 +1,18 @@
-// Import necessary modules and components
 'use client'
 import useCartService from '@/lib/hooks/useCartStore'
 import { OrderItem } from '@/lib/models/OrderModel'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import { useEffect, useState } from 'react'
 
 export default function AddToCart({ item }: { item: OrderItem }) {
   // Initialize necessary hooks and state variables
-  const router = useRouter()
+  const pathname = usePathname()
   const { items, increase, decrease } = useCartService()
   const [existItem, setExistItem] = useState<OrderItem | undefined>()
   const [showMessage, setShowMessage] = useState(false);
+  const [isProductPage, setIsProductPage] = useState(false);
 
   // Effect to update existItem when items or item changes
   useEffect(() => {
@@ -26,6 +26,12 @@ export default function AddToCart({ item }: { item: OrderItem }) {
     }
   }, [items])
 
+  // Effect to determine if user is on a product page
+  useEffect(() => {
+    const productPagePattern = /^\/product\/.*/;
+    setIsProductPage(productPagePattern.test(pathname));
+  }, [pathname]);
+
   // Function to handle adding an item to the cart
   const addToCartHandler = () => {
     increase(item);
@@ -35,57 +41,54 @@ export default function AddToCart({ item }: { item: OrderItem }) {
   return (
     <div className='w-full'>
       {showMessage && (
-        <div aria-live="assertive" className="pointer-events-none fixed inset-0 flex items-end px-4 py-6 sm:items-start sm:p-6 ">
-          <div className="flex w-full flex-col items-center space-y-4 sm:items-center z-10 bg-slate-100 rounded-lg">
-            <div className="pointer-events-auto flex w-full max-w-md rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
-              <div className="w-0 flex-1 sm:p-4 p-2">
-                <div className="flex items-center">
-                  <div className="flex-shrink-0 pt-0.5">
-                    <Image
-                      className="h-10 w-10 rounded-full border border-white object-cover"
-                      src={item.image}
-                      alt={process.env.brandName || 'RD Labels'}
-                      width={200}
-                      height={200}
-                    />
-                  </div>
-                  <div className="ml-3 w-0 flex-1">
-                    <p className="text-sm text-gray-900 dark:text-slate-900">Added to Your Cart 🥳</p>
-                    {/* <p className="mt-1 text-sm text-gray-500 dark:text-slate-100">Cart happiness unlocked! 🛒</p> */}
-                  </div>
-                </div>
-              </div>
-              <div className="flex border-0">
-                <button type="button" className=" flex w-full items-center justify-center rounded-none rounded-r-lg border border-transparent pr-4 text-sm font-medium text-white hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500"><Link href="/cart" className='border-0 btn btn-sm text-white font-light bg-kesari rounded-lg'>View Cart</Link></button>
-              </div>
-            </div>
-          </div>
-        </div>
+        // <div aria-live="assertive" className="pointer-events-none fixed inset-0 flex items-end px-4 py-6 sm:items-start sm:p-6">
+        //   <div className="flex w-full flex-col items-center space-y-11 sm:items-center z-50 bg-white rounded-lg">
+        //     <div className="pointer-events-auto flex w-full max-w-md rounded-lg shadow-lg ring-1 ring-black ring-opacity-5">
+        //       <div className="w-0 flex-1 sm:p-4 p-2">
+        //         <div className="flex items-center">
+        //           <div className="flex-shrink-0 pt-0.5">
+        //             <Image
+        //               className="h-10 w-10 rounded-full border border-white object-cover"
+        //               src={item.image}
+        //               alt={process.env.brandName || 'RD Labels'}
+        //               width={200}
+        //               height={200}
+        //             />
+        //           </div>
+        //           <div className="ml-3 w-0 flex-1">
+        //             <p className="text-sm text-gray-900 dark:text-slate-900">Added to Your Cart 🥳</p>
+        //             {/* <p className="mt-1 text-sm text-gray-500 dark:text-slate-100">Cart happiness unlocked! 🛒</p> */}
+        //           </div>
+        //         </div>
+        //       </div>
+        //       <div className="flex border-0">
+        //         <button type="button" className="flex w-full items-center justify-center rounded-none rounded-r-lg border border-transparent pr-4 text-sm font-medium text-white hover:text-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500">
+        //           <Link href="/cart" className='border-0 btn btn-sm text-white font-light bg-kesari rounded-lg'>View Cart</Link>
+        //         </button>
+        //       </div>
+        //     </div>
+        //   </div>
+        // </div>
+        <div className="badge badge-success absolute left-[50%] translate-x-[-50%] bottom-[118px] z-50 text-white"><Link href="/cart">Added to Quote List</Link></div>
       )}
-      {existItem ? (
-        // UI for existing item in the cart
-        <div className='flex items-center gap-2'>
-          <button className="btn-circle bg-base-500 btn text-lg" type="button" onClick={() => decrease(existItem)}>
-            -
-          </button>
-          <span className="px-2">{existItem.qty}</span>
-          <button className="btn-circle bg-base-500 btn text-lg" type="button" onClick={() => increase(existItem)}>
-            +
-          </button>
-        </div>
-      ) : (
-        // UI for new item not in the cart
+      <div className="flex items-center">
         <button
-          className="btn flex items-center justify-center rounded-md border border-transparent bg-indigo-600 py-3 px-8 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-50 w-full"
           type="button"
           onClick={addToCartHandler}
+          className="flex items-center"
         >
-          Add to cart
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" />
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#b74e26" className="bi bi-bag-plus" viewBox="0 0 16 16">
+            <path fillRule="evenodd" d="M8 7.5a.5.5 0 0 1 .5.5v1.5H10a.5.5 0 0 1 0 1H8.5V12a.5.5 0 0 1-1 0v-1.5H6a.5.5 0 0 1 0-1h1.5V8a.5.5 0 0 1 .5-.5z" />
+            <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1zm3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4h-3.5zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V5z" />
           </svg>
+          {isProductPage && (
+            <>
+              <span className="ml-2">Add to Quote list</span>
+              <span className="ml-4 text-sm text-gray-600">This item is available for quoting</span>
+            </>
+          )}
         </button>
-      )}
+      </div>
     </div>
   )
 }

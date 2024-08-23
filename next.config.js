@@ -4,16 +4,18 @@ const nextConfig = {
     domains: [
       'res.cloudinary.com',
       'localhost',
-      'i.postimg.cc', // Add the hostname here
+      'i.postimg.cc',
+      'img.freepik.com',
+      // Add any other domains you need explicitly
     ],
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'res.cloudinary.com', // if your website has no www, drop it
+        hostname: '*', // This wildcard will match all subdomains and domains
       },
       {
         protocol: 'http',
-        hostname: 'localhost',
+        hostname: '*', // This wildcard will match all subdomains and domains
       },
     ],
   },

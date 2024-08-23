@@ -28,8 +28,8 @@ export default function CartDetails() {
     <>
       {items.length === 0 ? (
         <div className="mt-20 text-center">
-          <img src={saleIcon.src} alt="sale is live now" className='w-96 mx-auto mb-5' />
-          Cart is empty. <Link href="/" className='btn btn-sm border-none bg-kesari text-white font-medium hover:bg-orange-800'>Go shopping</Link>
+          {/* <img src={saleIcon.src} alt="sale is live now" className='w-96 mx-auto mb-5' /> */}
+          <h2 className='mb-8 text-2xl'>Cart is empty.</h2> <Link href="/" className='btn btn-sm border-none bg-kesari text-white font-medium hover:bg-orange-800'>Go shopping</Link>
         </div>
       ) : (
         <>
@@ -109,11 +109,11 @@ export default function CartDetails() {
 
           {/* New Custom Cart Details */}
           <div className="mx-auto max-w-2xl py-16 px-4 sm:py-24 sm:px-6 lg:px-0">
-            <h1 className="text-center text-3xl font-bold tracking-tight text-base-900 sm:text-4xl">Shopping Cart</h1>
+            <h1 className="text-center text-3xl font-bold tracking-tight text-base-900 sm:text-4xl">Your Quote List</h1>
 
             <div className="mt-12">
               <section aria-labelledby="cart-heading">
-                <h2 id="cart-heading" className="sr-only">Items in your shopping cart</h2>
+                <h2 id="cart-heading" className="sr-only">Items in your Your Quote List</h2>
 
                 <ul role="list" className="divide-y divide-base-200 border-t border-b border-base-200">
 
@@ -147,7 +147,7 @@ export default function CartDetails() {
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4 flex-shrink-0 text-yellow-400">
                               <path fillRule="evenodd" d="M9 4.5a.75.75 0 0 1 .721.544l.813 2.846a3.75 3.75 0 0 0 2.576 2.576l2.846.813a.75.75 0 0 1 0 1.442l-2.846.813a3.75 3.75 0 0 0-2.576 2.576l-.813 2.846a.75.75 0 0 1-1.442 0l-.813-2.846a3.75 3.75 0 0 0-2.576-2.576l-2.846-.813a.75.75 0 0 1 0-1.442l2.846-.813A3.75 3.75 0 0 0 7.466 7.89l.813-2.846A.75.75 0 0 1 9 4.5ZM18 1.5a.75.75 0 0 1 .728.568l.258 1.036c.236.94.97 1.674 1.91 1.91l1.036.258a.75.75 0 0 1 0 1.456l-1.036.258c-.94.236-1.674.97-1.91 1.91l-.258 1.036a.75.75 0 0 1-1.456 0l-.258-1.036a2.625 2.625 0 0 0-1.91-1.91l-1.036-.258a.75.75 0 0 1 0-1.456l1.036-.258a2.625 2.625 0 0 0 1.91-1.91l.258-1.036A.75.75 0 0 1 18 1.5ZM16.5 15a.75.75 0 0 1 .712.513l.394 1.183c.15.447.5.799.948.948l1.183.395a.75.75 0 0 1 0 1.422l-1.183.395c-.447.15-.799.5-.948.948l-.395 1.183a.75.75 0 0 1-1.422 0l-.395-1.183a1.5 1.5 0 0 0-.948-.948l-1.183-.395a.75.75 0 0 1 0-1.422l1.183-.395c.447-.15.799-.5.948-.948l.395-1.183A.75.75 0 0 1 16.5 15Z" clipRule="evenodd" />
                             </svg>
-                            <span>Secured by {process.env.brandName}</span>
+                            <span>Reply within <b>33 Second</b></span>
                           </p>
                         </div>
 
