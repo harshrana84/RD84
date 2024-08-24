@@ -37,7 +37,7 @@ export const SearchBox = () => {
     // </div>
     <form action="/search" method="GET">
       <div className="join mx-4">
-        <select
+        {/* <select
           name="category"
           defaultValue={category}
           className="join-item select input-bordered"
@@ -46,7 +46,7 @@ export const SearchBox = () => {
           {categories.map((c: string) => (
             <option key={c}>{c}</option>
           ))}
-        </select>
+        </select> */}
         <input
           className="join-item input-bordered input  max-w-[350px] w-full"
           placeholder="Search"

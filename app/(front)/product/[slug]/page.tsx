@@ -106,8 +106,23 @@ export default async function ProductDetails({
         <div className="mx-auto my-0 sm:my-8 max-w-2xl px-0 pt-5 pb-5 sm:px-6 sm:pt-20 sm:pb-24 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8 gap-8 grid sm:block">
 
 
-         
 
+          <div className="lg:col-start-2 lg:row-span-2 lg:mt-0 lg:self-center">
+            <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg">
+              <Image
+                src={product.image}
+                alt={product.name}
+                className='h-full w-full object-cover object-center'
+                width={640}
+                height={640}
+                sizes="100vw"
+                style={{
+                  width: '100%',
+                  height: 'auto',
+                }}
+              ></Image>
+            </div>
+          </div>
           <div className="lg:max-w-lg lg:self-start">
             <nav aria-label="Breadcrumb">
               <ol role="list" className="flex items-center space-x-2">
@@ -380,25 +395,10 @@ export default async function ProductDetails({
               </section>
             </div>
           </div>
-          <div className="lg:col-start-2 lg:row-span-2 lg:mt-0 lg:self-center">
-            <div className="aspect-w-1 aspect-h-1 overflow-hidden rounded-lg">
-              <Image
-                src={product.image}
-                alt={product.name}
-                className='h-full w-full object-cover object-center'
-                width={640}
-                height={640}
-                sizes="100vw"
-                style={{
-                  width: '100%',
-                  height: 'auto',
-                }}
-              ></Image>
-            </div>
-          </div>
-          
+
+
         </div>
-        
+
       </div>
     </>
   )

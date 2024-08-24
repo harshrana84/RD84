@@ -37,7 +37,7 @@ export default function ProductItem({ product }: { product: Product }) {
         </Link>
         <div className="px-4 py-3 w-72">
           {/* <span className="text-gray-400 mr-3 uppercase text-xs">{product.brand}</span> */}
-          <div className="badge text-sm absolute top-2 left-2">by&nbsp;<b>{product.brand}</b></div>
+          <div className="badge text-sm absolute top-2 left-2">by&nbsp;{product.brand}</div>
 
           <p className="text-md font-bold text-black truncate block capitalize">
             {product.name}
